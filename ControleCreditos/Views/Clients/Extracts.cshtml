@@ -1,0 +1,54 @@
+﻿@model ControleCreditos.Models.ViewModels.ClientFormViewModel
+
+@{
+    ViewData["Title"] = "Extrato";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="success">
+            <th>Id</th>
+            <th>Tipo</th>
+            <th>Data</th>
+            <th>Descrição</th>
+            <th>Créditos</th>
+            <th>Operação</th>
+            <th>Saldo</th>
+        </tr>
+    </thead>
+    <!-- para cada item da lista -->
+    <tbody>
+        @foreach (var item in Model.Extracts)
+        {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Id)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Date)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credits)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Operation)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Balance)
+            </td>
+        </tr>
+        }
+        <tr>
+            <td colspan="6"></td>
+            <td>@ViewData["TotalBalance"]</td>
+        </tr>
+    </tbody>
+</table>

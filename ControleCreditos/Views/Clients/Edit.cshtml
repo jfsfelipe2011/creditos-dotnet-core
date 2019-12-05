@@ -1,0 +1,36 @@
+﻿@model ControleCreditos.Models.ViewModels.ClientFormViewModel;
+
+@{
+    ViewData["Title"] = "Alterar Cliente";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+<div class="row">
+    <div style="max-width: 50%; margin: auto">
+        <form asp-action="Edit">
+            <input type="hidden" asp-for="Client.Id" />
+            <input type="hidden" asp-for="Client.UserId" />
+            <div class="form-group">
+                <label asp-for="Client.Name" class="control-label"></label>
+                <input asp-for="Client.Name" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Document" class="control-label"></label>
+                <input asp-for="Client.Document" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Email" class="control-label"></label>
+                <input asp-for="Client.Email" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Client.Phone" class="control-label"></label>
+                <input asp-for="Client.Phone" class="form-control" />
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Alterar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>

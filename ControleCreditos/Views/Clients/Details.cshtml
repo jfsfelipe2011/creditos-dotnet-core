@@ -1,0 +1,32 @@
+﻿@model ControleCreditos.Models.Client;
+
+<h2>Cliente @Html.DisplayFor(model => model.Name)</h2>
+<hr />
+<div class="row">
+    <div style="max-width: 50%; margin: auto">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Document)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Document)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Email)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Email)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Phone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Phone)
+            </dd>
+        </dl>
+
+        <div style="text-align:center;">
+            <a asp-action="Index">Voltar</a>
+        </div>
+    </div>
+</div>

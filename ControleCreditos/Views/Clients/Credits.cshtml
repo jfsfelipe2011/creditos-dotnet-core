@@ -1,0 +1,52 @@
+﻿@model ControleCreditos.Models.ViewModels.ClientFormViewModel
+
+@{
+    ViewData["Title"] = "Créditos";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<p>
+    <a asp-action="Recharge" asp-controller="Credits" asp-route-id="@Model.Client.Id" class="btn btn-default">Recarregar</a>
+
+    @if (Model.TotalBalance > 0)
+    {
+        <a asp-action="Chargeback" asp-controller="Credits" asp-route-id="@Model.Client.Id" class="btn btn-default">Estornar</a>
+        <a asp-action="Remove" asp-controller="Credits" asp-route-id="@Model.Client.Id" class="btn btn-default">Remover</a>
+    }
+</p>
+
+<table class="table table-striped table-hover">
+    <thead>
+        <tr class="success">
+            <th>Id</th>
+            <th>Valor</th>
+            <th>Validade</th>
+            <th>Descrição</th>
+            <th>Saldo</th>
+        </tr>
+    </thead>
+    <!-- para cada item da lista -->
+    <tbody>
+        @foreach (var item in Model.Credits)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Value)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Validity)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Balance)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

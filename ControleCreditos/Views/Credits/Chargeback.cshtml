@@ -1,0 +1,30 @@
+﻿@model ControleCreditos.Models.Credit;
+
+@{
+    ViewData["Title"] = "Estorno de créditos";
+}
+
+<h2>@ViewData["Title"]</h2>
+<hr />
+<div class="row">
+    <div style="max-width: 50%; margin: auto">
+        <p>
+            <a asp-action="Credits" asp-controller="Clients" asp-route-id="@ViewData["IdCliente"]" class="btn btn-default">Voltar</a>
+        </p>
+
+        <form asp-action="Chargeback" asp-route-id="@ViewData["IdCliente"]">
+            <div class="form-group">
+                <label asp-for="Value" class="control-label"></label>
+                <input asp-for="Value" class="form-control" required />
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <textarea asp-for="Description" class="form-control" required></textarea>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Estornar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
